@@ -1,4 +1,4 @@
-package co.com.sofka.kataCrud.entidades;
+package co.com.sofka.kataCrud;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

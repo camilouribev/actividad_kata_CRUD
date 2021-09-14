@@ -1,6 +1,4 @@
-package co.com.sofka.kataCrud.controlador;
-import co.com.sofka.kataCrud.entidades.Todo;
-import co.com.sofka.kataCrud.servicios.TodoService;
+package co.com.sofka.kataCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,31 +6,33 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin( origins = "http://localhost:3000")
-@RequestMapping("api")
 public class TodoController {
 
     @Autowired
     private TodoService service;
 
-    @GetMapping(value = "/todos")
+    @GetMapping(value = "api/todos")
     public Iterable<Todo> list(){
         return service.list();
     }
-    @PostMapping(value = "/todo")
+
+    @PostMapping(value = "api/todo")
     public Todo save(@RequestBody Todo todo){
         return service.save(todo);
     }
-    @PutMapping(value = "{id}/todo")
+
+    @PutMapping(value = "api/todo")
     public Todo update(@RequestBody Todo todo){
         if(todo.getId() != null){
             return service.save(todo);}
         throw new RuntimeException("No existe el id para actualizar");
     }
-    @DeleteMapping(value = "/{id}/todo")
-    public void delete(@PathVariable Long id){
+    @DeleteMapping(value = "api/{id}/todo")
+    public void delete(@PathVariable("id") Long id){
         service.delete(id);
     }
-    @RequestMapping(value = "/{id}/todo")
+
+    @GetMapping(value = "api/{id}/todo")
     public Todo get(@PathVariable Long id){
         return service.get(id);
     }

@@ -1,6 +1,4 @@
-package co.com.sofka.kataCrud.servicios;
-import co.com.sofka.kataCrud.entidades.Todo;
-import co.com.sofka.kataCrud.repositorio.TodoRepository;
+package co.com.sofka.kataCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
